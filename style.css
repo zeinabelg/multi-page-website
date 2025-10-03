@@ -1,3 +1,12 @@
+:root {
+  --primary-color: #2262b7;
+  --primary-dark: #1a3f7c;
+  --accent-color: #F2994A;
+  --accent-light: #FBD7A0;
+  --light-bg: #F2F2F2;
+  --white: #FFFFFF;
+  --text-color: #333333;
+}
 * {
   margin: 0;
   padding: 0;
@@ -7,6 +16,82 @@
 html, body {
   width: 100%;
   overflow-x: hidden; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+header {
+    background: var(--primary-color);
+    color: white;
+    padding: 15px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* uhh? display: flex;*/
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* not doig anything tbh */
+.logo {
+    font-size: 1.5rem;
+    color: var(--white);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color);
+}
+
+footer {
+    background: var(--primary-dark);
+    color: var(--white);
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent-color);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--accent-light);
+    color: var(--primary-dark);
+    transform: translateY(-3px); /*lift effect*/
 }
 
 /* About section */
@@ -35,8 +120,128 @@ html, body {
   max-width: 100%;       
 }
 
+/* Services section */
+.services {
+  padding: 40px 20px;
+  text-align: center;
+  background: white;       
+}
+
+.services h2 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.services h2::after {
+    /* what does this mean */
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 20px; 
+}
+
+.service-card {
+  background: var(--light-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.service-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+.service-card:hover {
+  background: var(--accent-light);
+  /* come back to this... */
+  transform: translateY(-5px); 
+  cursor: pointer;     
+}
+
+/* Contact section */
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--light-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-dark)
+}
+
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    padding: 7px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid hotpink;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 10px;
+    margin-top: 5px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: var(--primary-color-dark, hotpink);
+}
+
 /* Mobile */
 @media (max-width: 768px) {
+   nav {
+    flex-direction: column;
+    gap: 15px;
+ }
+
+  .nav-links{
+    justify-content: flex-end;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
   .about {
     flex-direction: column; 
     text-align: center;
@@ -46,7 +251,21 @@ html, body {
   .about-image {
     margin-top: 20px;
   }
+
+   .services {
+    padding: 20px 10px;
+  }
+
+   .services h2 {
+    font-size: 1.5rem;
+  }
 }
 
+@media (max-width: 600px) {
+    .contact-form {
+        margin: 20px;
+        padding: 15px;
+    }
+}
 
 
