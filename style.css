@@ -35,14 +35,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* uhh? display: flex;*/
+    /*  display: flex;*/
     max-width: 1200px;
     margin: 0 auto;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* not doig anything tbh */
 .logo {
+    height: 100px;
+    width: auto;
+}
+
+.logo-title {
     font-size: 1.5rem;
     color: var(--white);
     font-weight: bold;
@@ -70,15 +74,64 @@ footer {
     background: var(--primary-dark);
     color: var(--white);
     text-align: center;
-    padding: 15px 10px;
+    padding: 20px;
     font-size: 0.9rem;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: auto;
 }
 
+footer .social-links a {
+    color: var(--accent-color);
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: var(--white);
+}
+
+.why-choose {
+    padding: 40px 20px;
+    text-align: center;
+    background: var(--light-bg);
+}
+
+.why-choose h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.why-card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.why-card:hover {
+    transform: translateY(-3px);
+    color: var(--text-color);
+    background: var(--accent-light);
+}
+
+.why-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 12px 25px;
     background: var(--accent-color);
     color: var(--white);
     border: none;
@@ -90,7 +143,7 @@ footer {
 
 .btn:hover {
     background: var(--accent-light);
-    color: var(--primary-dark);
+    color: var(--text-color);
     transform: translateY(-3px); /*lift effect*/
 }
 
@@ -135,7 +188,6 @@ footer {
 }
 
 .services h2::after {
-    /* what does this mean */
   content: "";
   display: block;
   width: 60px;
@@ -227,6 +279,72 @@ footer {
 
 .contact-form button:hover {
     background: var(--primary-color-dark, hotpink);
+}
+
+.hero {
+    position: relative;
+    background: url("../images/banner.png") center/cover no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-color);
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-overlay {
+    position: relative;
+    max-width: 800px;
+    /* z-index: 1; */
+    padding: 20px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mission {
+    text-align: center;
+    background: var(--light-bg);
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin: 40px auto;
+    max-width: 1000px;
+}
+
+.mission h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.mission p {
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.mission-image {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
 }
 
 /* Mobile */
